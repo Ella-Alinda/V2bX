@@ -116,7 +116,7 @@ func buildInbound(option *conf.Options, nodeInfo *panel.NodeInfo, tag string) (*
 		v := nodeInfo.VAllss
 		dest := v.TlsSettings.Dest
 		if dest == "" {
-			dest = "www.apple.com:443"
+			dest = "www.apple.com"
 		}
 		xver := v.TlsSettings.Xver
 		if xver == 0 {
