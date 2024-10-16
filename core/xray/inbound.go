@@ -116,7 +116,7 @@ func buildInbound(option *conf.Options, nodeInfo *panel.NodeInfo, tag string) (*
 		v := nodeInfo.VAllss
 		dest := v.TlsSettings.Dest
 		if dest == "" {
-			dest = v.TlsSettings.ServerName
+			dest = "www.apple.com:443"
 		}
 		xver := v.TlsSettings.Xver
 		if xver == 0 {
@@ -130,9 +130,8 @@ func buildInbound(option *conf.Options, nodeInfo *panel.NodeInfo, tag string) (*
 			return nil, fmt.Errorf("marshal reality dest error: %s", err)
 		}
 		mtd, _ := time.ParseDuration(v.RealityConfig.MaxTimeDiff)
-		var dest_d String = "www.apple.com"
 		in.StreamSetting.REALITYSettings = &coreConf.REALITYConfig{
-			Dest:         dest_d,
+			Dest:         d,
 			Xver:         xver,
 			ServerNames:  []string{v.TlsSettings.ServerName},
 			PrivateKey:   v.TlsSettings.PrivateKey,
